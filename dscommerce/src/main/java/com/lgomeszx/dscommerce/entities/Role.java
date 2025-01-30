@@ -22,6 +22,11 @@ public class Role implements GrantedAuthority {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    public Role(Long id, String authority) {
+        this.id = id;
+        this.authority = authority;
+    }
+
     public Role() {
     }
 
