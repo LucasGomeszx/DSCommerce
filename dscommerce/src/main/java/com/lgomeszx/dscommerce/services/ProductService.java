@@ -1,7 +1,9 @@
 package com.lgomeszx.dscommerce.services;
 
+import com.lgomeszx.dscommerce.dto.CategoryDTO;
 import com.lgomeszx.dscommerce.dto.ProductDTO;
 import com.lgomeszx.dscommerce.dto.ProductMinDTO;
+import com.lgomeszx.dscommerce.entities.Category;
 import com.lgomeszx.dscommerce.entities.Product;
 import com.lgomeszx.dscommerce.repositories.ProductRepository;
 import com.lgomeszx.dscommerce.services.exeptions.DatabaseException;
@@ -73,6 +75,13 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
+
+        entity.getCategories().clear();
+        for (CategoryDTO catDTO: dto.getCategories()) {
+            Category cat = new Category();
+            cat.setId(catDTO.getId());
+            entity.getCategories().add(cat);
+        }
     }
 
 }
