@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.net.URI;
-
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
@@ -21,6 +18,5 @@ public class UserController {
         UserDTO dto = service.getMe();
         return ResponseEntity.ok(dto);
     }
-
 
 }
